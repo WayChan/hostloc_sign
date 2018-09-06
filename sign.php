@@ -2,7 +2,7 @@
 $username = "USERNAME";
 $password = "PASSWORD";
 set_time_limit(600);
-$suburl = "http://www.hostloc.com/member.php?mod=logging&action=login";
+$suburl = "https://www.hostloc.com/member.php?mod=logging&action=login";
 $loginInfo = array(
         "username" => $username,
         "password" => $password,
@@ -12,7 +12,7 @@ $loginInfo = array(
         "loginsubmit" => true
 );
 $login = postData($suburl,$loginInfo);
-$spaceUrl = "http://www.hostloc.com/space-uid-*.html";
+$spaceUrl = "https://www.hostloc.com/space-uid-*.html";
 for($i=233;$i<246;$i++)
 {
         getData(str_replace("*",$i,$spaceUrl));
@@ -29,7 +29,7 @@ function postData($url, $post_data)
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT,600);
-        curl_setopt($ch, CURLOPT_REFERER, 'http://www.hostloc.com/');
+        curl_setopt($ch, CURLOPT_REFERER, 'https://www.hostloc.com/');
         $result = curl_exec($ch);
         curl_close($ch);
         return $result;
